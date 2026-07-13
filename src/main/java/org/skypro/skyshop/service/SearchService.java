@@ -18,6 +18,5 @@ public class SearchService {
                 .filter(item -> item.getSearchTerm().contains(pattern))
                 .map(SearchResult::fromSearchable)
                 .collect(Collectors.toList());
-
     }
 }

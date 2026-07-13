@@ -20,6 +20,7 @@ public class StorageService {
 
         addTest();
     }
+
     public Collection<Product> getAllProducts() {
         return this.storageProducts.values();
     }
