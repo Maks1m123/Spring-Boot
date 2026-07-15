@@ -15,6 +15,7 @@ public class ProductBasket {
 
     private final Map<UUID,Integer> basket = new HashMap<>();
 
+
     public void addProduct(UUID id) {
         if (basket.containsKey(id)) {
             basket.put(id, basket.get(id) + 1);

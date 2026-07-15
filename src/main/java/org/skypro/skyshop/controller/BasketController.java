@@ -12,16 +12,19 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/basket")
 public class BasketController {
+
     private final BasketService basketService;
 
     public BasketController(BasketService basketService) {
         this.basketService = basketService;
     }
+
     @GetMapping("/{id}")
     public String addBasket(@PathVariable UUID id) {
         basketService.addProduct(id);
         return "Продукт добавлен";
     }
+
     @GetMapping
     public UserBasket getBasket() {
         return basketService.getUserBasket();

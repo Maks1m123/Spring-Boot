@@ -27,7 +27,6 @@ public class BasketService {
         }
         productBasket.addProduct(id);
     }
-
     public UserBasket getUserBasket() {
         List<BasketItem> items = productBasket.getBasket().entrySet().stream()
                 .map(entry -> {

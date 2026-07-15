@@ -46,6 +46,7 @@ public class StorageService {
         storageArticles.put(uuid4,new Article(uuid4,"Магазин","#12345"));
     }
 
+
     public Optional<Product> getProductById(UUID id) {
         return Optional.ofNullable(storageProducts.get(id));
     }

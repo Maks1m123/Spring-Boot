@@ -12,9 +12,11 @@ public class UserBasket {
                 .mapToInt(item -> item.getProduct().getPrice()*item.getQuantity())
                 .sum();
     }
+
     public int getTotal() {
         return total;
     }
+
     public List<BasketItem> getItems() {
         return items;
     }
