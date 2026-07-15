@@ -33,6 +33,7 @@ public class StorageService {
         searchables.addAll(this.storageArticles.values());
         return searchables;
     }
+
     private void addTest(){
         UUID uuid1 = UUID.randomUUID();
         storageProducts.put(uuid1,new SimpleProduct(uuid1,"Томаты",120));
@@ -43,6 +44,10 @@ public class StorageService {
 
         UUID uuid4 = UUID.randomUUID();
         storageArticles.put(uuid4,new Article(uuid4,"Магазин","#12345"));
+    }
+
+    public Optional<Product> getProductById(UUID id) {
+        return Optional.ofNullable(storageProducts.get(id));
     }
 }
 
