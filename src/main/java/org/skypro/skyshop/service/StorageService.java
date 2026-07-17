@@ -33,6 +33,9 @@ public class StorageService {
         searchables.addAll(this.storageArticles.values());
         return searchables;
     }
+    public Product addProduct(Product product) {
+        return storageProducts.computeIfAbsent(product.getId(),id ->product);
+    }
 
     private void addTest(){
         UUID uuid1 = UUID.randomUUID();
