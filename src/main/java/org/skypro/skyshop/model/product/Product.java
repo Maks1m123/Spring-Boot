@@ -15,7 +15,6 @@ public abstract class Product implements Searchable {
         if(id==null){
             throw new IllegalArgumentException("id cannot be null");
         }
-
         if (name == null || name.isBlank()){
             throw new IllegalArgumentException("Название не верное!");
         }

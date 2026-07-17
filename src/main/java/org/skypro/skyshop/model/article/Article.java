@@ -12,6 +12,7 @@ public final class Article implements Searchable {
     private final String title;
     private final String text;
 
+
     public Article(UUID id,String titleArticle, String textArticle) {
         if(id==null){
             throw new IllegalArgumentException("id is null");

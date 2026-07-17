@@ -10,7 +10,6 @@ public class SearchResult{
         this.name = name;
         this.contentType = contentType;
     }
-
     public static SearchResult fromSearchable(Searchable item){
         return new SearchResult(
                 item.getId().toString(),
