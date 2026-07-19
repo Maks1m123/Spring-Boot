@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 @Service
 public class SearchService {
 
+
     private final StorageService storageService;
     public SearchService(StorageService storageService) {
         this.storageService = storageService;
@@ -18,6 +19,5 @@ public class SearchService {
                 .filter(item -> item.getSearchTerm().contains(pattern))
                 .map(SearchResult::fromSearchable)
                 .collect(Collectors.toList());
-
     }
 }
