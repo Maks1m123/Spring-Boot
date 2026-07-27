@@ -45,9 +45,12 @@ public class StorageService {
         storageProducts.put(uuid2,new SimpleProduct(uuid2,"Кабель", 450));
         UUID uuid3 = UUID.randomUUID();
         storageProducts.put(uuid3,new SimpleProduct(uuid3,"Балон Газовый",1100));
-
         UUID uuid4 = UUID.randomUUID();
-        storageArticles.put(uuid4,new Article(uuid4,"Магазин","#12345"));
+        storageArticles.put(uuid4,new Article(uuid4,"Магазин1","#1"));
+        UUID uuid5 = UUID.randomUUID();
+        storageArticles.put(uuid4,new Article(uuid5,"Магазин2","#2"));
+        UUID uuid6 = UUID.randomUUID();
+        storageArticles.put(uuid4,new Article(uuid6,"Магазин3","#3"));
     }
 
 
