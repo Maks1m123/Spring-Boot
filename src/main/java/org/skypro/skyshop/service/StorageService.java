@@ -1,5 +1,6 @@
 package org.skypro.skyshop.service;
 
+import org.skypro.skyshop.exception.NoSuchProductException;
 import org.skypro.skyshop.model.article.Article;
 import org.skypro.skyshop.model.product.Product;
 import org.skypro.skyshop.model.product.SimpleProduct;
@@ -20,6 +21,7 @@ public class StorageService {
 
         addTest();
     }
+
     public Collection<Product> getAllProducts() {
         return this.storageProducts.values();
     }
@@ -32,6 +34,10 @@ public class StorageService {
         searchables.addAll(this.storageArticles.values());
         return searchables;
     }
+    public Product addProduct(Product product) {
+        return storageProducts.computeIfAbsent(product.getId(),id ->product);
+    }
+
     private void addTest(){
         UUID uuid1 = UUID.randomUUID();
         storageProducts.put(uuid1,new SimpleProduct(uuid1,"Томаты",120));
@@ -39,9 +45,19 @@ public class StorageService {
         storageProducts.put(uuid2,new SimpleProduct(uuid2,"Кабель", 450));
         UUID uuid3 = UUID.randomUUID();
         storageProducts.put(uuid3,new SimpleProduct(uuid3,"Балон Газовый",1100));
-
         UUID uuid4 = UUID.randomUUID();
-        storageArticles.put(uuid4,new Article(uuid4,"Магазин","#12345"));
+        storageArticles.put(uuid4,new Article(uuid4,"Магазин1","#1"));
+        UUID uuid5 = UUID.randomUUID();
+        storageArticles.put(uuid4,new Article(uuid5,"Магазин2","#2"));
+        UUID uuid6 = UUID.randomUUID();
+        storageArticles.put(uuid4,new Article(uuid6,"Магазин3","#3"));
+    }
+
+
+    public Product getProductById(UUID id) {
+
+        return Optional.ofNullable(storageProducts.get(id))
+                .orElseThrow(() -> new NoSuchProductException("Нету продукта с таким ID "+ id));
     }
 }
 
